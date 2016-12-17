@@ -21,6 +21,7 @@ class Header extends React.Component {
           <div className="col-md-4">
             <div className="row">
               Location: Ho Chi Minh City
+
             </div>
             <div className="row">
               <div className="input-group">
@@ -34,9 +35,15 @@ class Header extends React.Component {
           <div className="col-md-4 login">
             {
               this.props.user?
-              <div>
-                <Link>{this.props.user.profile.name}</Link>
+              <div className="login-after">
+                Hello,
+                <Link to="profile">{this.props.user.profile.name}</Link>
+                <Link to="profile">
+                  <i className="fa fa-cart-plus fa-2x"></i>
+                </Link>
+                <br/>
                 <a href="javascript:;" onClick={() => Meteor.logout()}>Logout</a>
+
               </div>
               :<Link to="login">Login / Register</Link>
             }
