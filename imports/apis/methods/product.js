@@ -1,4 +1,8 @@
+// import Product from '../models/product';
+
 import GenericCollection from '../genericCollection';
+
+import {Meteor} from 'meteor/meteor';
 
 const Product = new GenericCollection('products');
 
@@ -19,6 +23,9 @@ var schema = new SimpleSchema({
       type: SimpleSchema.Double,
     },
     status: {
+      type: String
+    },
+    imageBase64: {
       type: String
     },
   	create_at : {
@@ -54,5 +61,25 @@ var schema = new SimpleSchema({
 });
 
 Product.attachSchema(schema);
+
+
+
+if(Meteor.isServer){
+
+  Meteor.publish('getListProductPost', function() {
+    if (!this.userId) throw new Meteor.Error('not-authorized');
+    return Product.find();
+  })
+
+  Meteor.methods({
+    postProduct: (product) => {
+      if (!Meteor.userId()) throw new Meteor.Error('not-authorized');
+      return Product.insert(product);
+    },
+    getProductByUserId: () => {
+
+    }
+  })
+}
 
 export default Product;

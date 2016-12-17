@@ -30,25 +30,25 @@ class GenericCollection extends Mongo.Collection {
      * Find remove function.
      * @author binh.vt
     */
-    find(selector, options) {
-      if (!selector) {
-        var selector = {};
-      } else {/*Do Nothing*/}
-      selector.delete_at = {$eq: null};
-      return super.find(selector, options);
-    }
-
-    /**
-     * FindOne remove function.
-     * @author binh.vt
-    */
-    findOne(selector, options) {
-      if (!selector) {
-        var selector = {};
-      } else {/*Do Nothing*/}
-      selector.delete_at = {$eq: null};
-      return super.findOne(selector, options);
-    }
+    // find(selector, options) {
+    //   if (!selector) {
+    //     var selector = {};
+    //   } else {/*Do Nothing*/}
+    //   selector.delete_at = {$eq: null};
+    //   return super.find(selector, options);
+    // }
+    //
+    // /**
+    //  * FindOne remove function.
+    //  * @author binh.vt
+    // */
+    // findOne(selector, options) {
+    //   if (!selector) {
+    //     var selector = {};
+    //   } else {/*Do Nothing*/}
+    //   selector.delete_at = {$eq: null};
+    //   return super.findOne(selector, options);
+    // }
 
     /**
      * Hook remove function.
