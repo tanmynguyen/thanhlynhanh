@@ -5,6 +5,9 @@ body {
   background-color: #eee;
 }
 
+.logo-header {
+  padding-bottom: 20px;
+}
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -40,16 +43,17 @@ body {
   border-top-right-radius: 0;
 }
 
-.navbar {
-  padding: 20px;
-  font-size: 15px;
-  cursor: pointer;
-  font-family: serif;
+.navbar-header {
+  padding: 30px;
+    padding-left: 60px;
+    font-size: 21px;
+    font-family: monospace;
+    cursor: pointer;
 }
 
 
 .login {
-  padding: 10px;
-  padding-left: 50px;
+  padding: 30px;
+  padding-left: 150px;
 }
 

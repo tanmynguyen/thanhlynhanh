@@ -7,14 +7,15 @@ class Header extends React.Component {
     return (
       <header>
         <div className="row">
-          <div className="col-md-2">
-            <Link to="/"><img className="img-responsive" src="/images/logo.png" /></Link>
+          <div className="col-md-2 logo-header">
+            <div className="row">
+              <Link to="/"><img className="img-responsive" src="/images/logo.png" /></Link>
+            </div>
           </div>
 
-          <div className="col-md-2">
-            <div className = "row navbar">
-              <Link className="menu"> Home </Link>
-              <Link className="menu"> HotDeal </Link>
+          <div className="col-md-2 navbar-header">
+            <div className = "row">
+              <Link> Hot Deal </Link>
             </div>
           </div>
 
