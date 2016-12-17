@@ -13,8 +13,8 @@ class Header extends React.Component {
 
           <div className="col-md-2">
             <div className = "row navbar">
-              <Link> Home </Link>
-              <Link> HotDeal </Link>
+              <Link className="menu"> Home </Link>
+              <Link className="menu"> HotDeal </Link>
             </div>
           </div>
 
@@ -39,7 +39,7 @@ class Header extends React.Component {
                 Hello,
                 <Link to="profile">{this.props.user.profile.name}</Link>
                 <Link to="profile">
-                  <i className="fa fa-cart-plus fa-2x"></i>
+                  <i className="fa fa-cart-plus fa-2x iconcart"></i>
                 </Link>
                 <br/>
                 <a href="javascript:;" onClick={() => Meteor.logout()}>Logout</a>

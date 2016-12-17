@@ -6,32 +6,32 @@ class Admin extends React.Component {
         <div id="wrapper">
 
 
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+        <nav className="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div className="navbar-header">
+                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a className="navbar-brand" href="index.html">SB Admin v2.0</a>
             </div>
 
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul className="nav navbar-top-links navbar-right">
 
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <li className="dropdown">
+                    <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i className="fa fa-user fa-fw"></i> <i className="fa fa-caret-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <ul className="dropdown-menu dropdown-user">
+                        <li><a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li className="divider"></li>
+                        <li><a href="login.html"><i className="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
 
@@ -40,14 +40,14 @@ class Admin extends React.Component {
             </ul>
 
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
+            <div className="navbar-default sidebar" role="navigation">
+                <div className="sidebar-nav navbar-collapse">
+                    <ul className="nav" id="side-menu">
                         <li>
-                            <a href="products.html"><i class="fa fa-product-hunt fa-fw"></i> Products</a>
+                            <a href="products.html"><i className="fa fa-product-hunt fa-fw"></i> Products</a>
                         </li>
                         <li>
-                            <a href="users.html"><i class="fa fa-users fa-fw"></i> Users</a>
+                            <a href="users.html"><i className="fa fa-users fa-fw"></i> Users</a>
                         </li>
                     </ul>
                 </div>
@@ -60,13 +60,13 @@ class Admin extends React.Component {
 
 <div id="page-wrapper">
 
-<div class="row">
+<div className="row">
 
-<div class="col-sm-12"  style="margin-top: 30px;">
-    <div class="panel panel-primary">
-      <div class="panel-heading" style="text-transform: uppercase;">Products awaiting moderation</div>
-      <div class="table-responsive">
-        <table class="table table-striped">
+<div className="col-sm-12"  style="margin-top: 30px;">
+    <div className="panel panel-primary">
+      <div className="panel-heading" style="text-transform: uppercase;">Products awaiting moderation</div>
+      <div className="table-responsive">
+        <table className="table table-striped">
            <thead>
               <tr>
                 <th>ID</th>
@@ -89,8 +89,8 @@ class Admin extends React.Component {
                 <td>24/12/2016 9:00 AM</td>
                 <td>New</td>
                 <td>
-                    <button type="button" class="btn btn-success">Accept</button>
-                    <button type="button" class="btn btn-warning">Decline</button>
+                    <button type="button" className="btn btn-success">Accept</button>
+                    <button type="button" className="btn btn-warning">Decline</button>
                 </td>
               </tr>
               <tr>
@@ -102,8 +102,8 @@ class Admin extends React.Component {
                 <td>24/12/2016 12:00 AM</td>
                 <td>New</td>
                 <td>
-                    <button type="button" class="btn btn-success">Accept</button>
-                    <button type="button" class="btn btn-warning">Decline</button>
+                    <button type="button" className="btn btn-success">Accept</button>
+                    <button type="button" className="btn btn-warning">Decline</button>
                 </td>
               </tr>
               <tr>
@@ -115,8 +115,8 @@ class Admin extends React.Component {
                 <td>31/12/2016 9:00 AM</td>
                 <td>New</td>
                 <td>
-                    <button type="button" class="btn btn-success">Accept</button>
-                    <button type="button" class="btn btn-warning">Decline</button>
+                    <button type="button" className="btn btn-success">Accept</button>
+                    <button type="button" className="btn btn-warning">Decline</button>
                 </td>
               </tr>
             </tbody>
