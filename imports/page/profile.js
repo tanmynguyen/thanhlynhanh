@@ -46,6 +46,7 @@ class PostProduct extends React.Component {
       productName: "",
       description: "",
       price: 0,
+      priceSale: 0,
       quantity: 10,
       totalPrice: 0,
       imageBase64: "",
@@ -61,9 +62,9 @@ class PostProduct extends React.Component {
       description: this.state.description,
       quantity: this.state.quantity,
       normal_price: this.state.price,
-      sale_price: this.state.price,
+      sale_price: this.state.priceSale,
       imageBase64: this.state.imageBase64,
-      status: "processing"
+      status: "verifying"
     }
     Meteor.call('postProduct', _product, (err, result) => {
       if(err){
@@ -75,6 +76,7 @@ class PostProduct extends React.Component {
           productName: "",
           description: "",
           price: 0,
+          priceSale: 0,
           quantity: 10,
           totalPrice: 0,
           imageBase64: "",
@@ -107,7 +109,14 @@ class PostProduct extends React.Component {
   onChangePrice(value) {
     var _this = this;
     this.setState({
-      price: value.target.value,
+      price: value.target.value
+    })
+  }
+
+  onChangePriceSale(value) {
+    var _this = this;
+    this.setState({
+      priceSale: value.target.value,
       totalPrice: value.target.value * _this.state.quantity
     })
   }
@@ -171,11 +180,20 @@ class PostProduct extends React.Component {
               </div>
             </div>
             <div className="form-group">
-              <label htmlFor="inputEmail3" className="col-sm-3 control-label" style={{textAlign: 'left'}}>Price</label>
+              <label htmlFor="inputEmail3" className="col-sm-3 control-label" style={{textAlign: 'left'}}>Price Normal</label>
               <div className="col-sm-9">
                 <div className="input-group">
                   <div className="input-group-addon">$</div>
-                  <input type="number" className="form-control" id="price" placeholder="Price" onChange={(value) => this.onChangePrice(value)}/>
+                  <input type="number" className="form-control" id="price" placeholder="Price Normal" onChange={(value) => this.onChangePrice(value)}/>
+                </div>
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputEmail3" className="col-sm-3 control-label" style={{textAlign: 'left'}}>Price Sale</label>
+              <div className="col-sm-9">
+                <div className="input-group">
+                  <div className="input-group-addon">$</div>
+                  <input type="number" className="form-control" id="price" placeholder="Price Sale" onChange={(value) => this.onChangePriceSale(value)}/>
                 </div>
               </div>
             </div>
@@ -203,7 +221,7 @@ class PostProduct extends React.Component {
         </div>
         <div className="col-md-12">
           <hr />
-          <ListProductPost listProductPost={this.props.listProductPost}/>
+          <ListProductPost listProductPost={this.props.listProductPost} category={this.props.category}/>
         </div>
       </div>
     )
@@ -217,7 +235,7 @@ class ListProductPost extends React.Component {
       <div>
         {
           listProduct.length>0?
-            <TableProduct product={listProduct}/>
+            <TableProduct product={listProduct} category={this.props.category}/>
           :""
         }
       </div>
@@ -228,7 +246,6 @@ class ListProductPost extends React.Component {
 export default createContainer(() => {
   Meteor.subscribe('getListCategory');
   Meteor.subscribe('getListProductPost');
-  console.log(Meteor.subscribe('getListProductPost').ready());
   return {
     category: Category.find({}).fetch(),
     listProductPost: Product.find({create_by: Meteor.userId()}, {sort: {create_at: -1}}).fetch()

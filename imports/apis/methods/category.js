@@ -59,10 +59,10 @@ if(Meteor.isServer){
   // Category.insert({name: 'Fashion'});
 
   Meteor.methods({
-    // postProduct: () => {
-    //   if (!Meteor.userId()) throw new Meteor.Error('not-authorized');
-    //   return Product.insert({});
-    // },
+    getCategoryById: (id) => {
+      if (!Meteor.userId()) throw new Meteor.Error('not-authorized');
+      return Category.findOne({_id: id});
+    },
     // getProductByUserId: () => {
     //
     // }
