@@ -30,11 +30,7 @@ class Header extends React.Component {
                 <Link>{this.props.user.profile.name}</Link>
                 <a href="javascript:;" onClick={() => Meteor.logout()}>Logout</a>
               </div>
-              :
-              <div>
-                <Link to="login">Login</Link>
-                <Link to="register">Register</Link>
-              </div>
+              :<Link to="login">Login / Register</Link>
             }
 
           </div>
