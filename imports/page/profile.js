@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-class Register extends React.Component {
+class Profile extends React.Component {
   render () {
     return (
       <div>Register</div>
@@ -8,4 +8,4 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+export default Profile;
