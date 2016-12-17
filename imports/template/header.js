@@ -7,12 +7,21 @@ class Header extends React.Component {
     return (
       <header>
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-2">
             <Link to="/"><img className="img-responsive" src="/images/logo.png" /></Link>
           </div>
-          <div className="col-md-5">
+
+          <div className="col-md-2">
+            <div className = "row navbar">
+              <Link className="menu"> Home </Link>
+              <Link className="menu"> HotDeal </Link>
+            </div>
+          </div>
+
+          <div className="col-md-4">
             <div className="row">
               Location: Ho Chi Minh City
+
             </div>
             <div className="row">
               <div className="input-group">
@@ -23,12 +32,18 @@ class Header extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 login">
             {
               this.props.user?
-              <div>
-                <Link>{this.props.user.profile.name}</Link>
+              <div className="login-after">
+                Hello,
+                <Link to="profile">{this.props.user.profile.name}</Link>
+                <Link to="profile">
+                  <i className="fa fa-cart-plus fa-2x iconcart"></i>
+                </Link>
+                <br/>
                 <a href="javascript:;" onClick={() => Meteor.logout()}>Logout</a>
+
               </div>
               :<Link to="login">Login / Register</Link>
             }

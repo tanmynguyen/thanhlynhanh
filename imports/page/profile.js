@@ -211,10 +211,75 @@ class PostProduct extends React.Component {
 
 class ListProductPost extends React.Component {
   render() {
-    console.log(this.props.listProductPost);
+    var listProduct = this.props.listProductPost;
     return (
       <div>
+        <div className="row">
 
+        <div className="col-sm-12"  style={{marginTop: 30}}>
+            <div className="panel panel-primary">
+              <div className="panel-heading" style={{textTransform: 'uppercase'}}>Products awaiting moderation</div>
+              <div className="table-responsive">
+                <table className="table table-striped">
+                   <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Catagory</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Time Out</th>
+                        <th>Status</th>
+                        <th>Verify</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Iphone</td>
+                        <td>Apple</td>
+                        <td>799$</td>
+                        <td>100</td>
+                        <td>24/12/2016 9:00 AM</td>
+                        <td>New</td>
+                        <td>
+                            <button type="button" className="btn btn-success">Accept</button>
+                            <button type="button" className="btn btn-warning">Decline</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Galaxy note 6</td>
+                        <td>Samsung</td>
+                        <td>750$</td>
+                        <td>100</td>
+                        <td>24/12/2016 12:00 AM</td>
+                        <td>New</td>
+                        <td>
+                            <button type="button" className="btn btn-success">Accept</button>
+                            <button type="button" className="btn btn-warning">Decline</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Macbook Ari</td>
+                        <td>Apple</td>
+                        <td>1500$</td>
+                        <td>100</td>
+                        <td>31/12/2016 9:00 AM</td>
+                        <td>New</td>
+                        <td>
+                            <button type="button" className="btn btn-success">Accept</button>
+                            <button type="button" className="btn btn-warning">Decline</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+
+        </div>
       </div>
     )
   }
