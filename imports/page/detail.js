@@ -32,17 +32,18 @@ class Detail extends React.Component {
   }
 
   render () {
+    var detail = this.state.detail;
     return (
       <div className="container">
         {
-          this.state.detail?
+          detail?
           <div>
             <div className="product-detail">
 
                 <div className="col-md-5">
                   <div className="thumbnail">
                     <a href="/w3images/fjords.jpg" target="_blank">
-                      <img src="http://www.w3schools.com/w3images/lights.jpg" alt="Cinque Terre"/>
+                      <img src={detail.imageBase64} alt="Cinque Terre"/>
                       <div className="caption">
                       <div className="row">
                         <div className="col-md-4 col-xs-4">
@@ -62,10 +63,10 @@ class Detail extends React.Component {
                     </div>
             <div className="col-md-7">
               <div className="">
-                <h3 className="product-title"> Iphone 7 Plus 128GB - New 100%</h3>
+                <h3 className="product-title">{detail.name}</h3>
                 <div className="clearfix">
                   <div className="col-md-12 text-right">
-                    <span className="oldprice">$400</span> <span className="newprice">$200</span>
+                    <span className="oldprice">${detail.normal_price}</span> <span className="newprice">${detail.sale_price}</span>
                   </div>
                 </div>
                 <div className="clearfix">
@@ -78,7 +79,7 @@ class Detail extends React.Component {
                       <i className="fa fa-star" aria-hidden="true"></i>
                       <i className="fa fa-star" aria-hidden="true"></i>
                       </div>
-                      <div className="timetxt">Max Points: <span className="time"> 200</span></div>
+                      <div className="timetxt">Max Points: <span className="time"> {detail.sale_price}</span></div>
                     </div>
                   </div>
                   <div className="col-sm-6 text-right">
@@ -89,17 +90,9 @@ class Detail extends React.Component {
 
                 </div>
                 <div className="detail clearfix">
-                    <p>Nút home tròn trên iPhone 7 chính thức là dạng cứng, tức bạn sẽ không nhấn xuống được nữa, để thao tác trên nút này bạn sẽ nhấn 1 lực vừa phải đến khi nút home run nhẹ lên.</p>
-                    <p>
-                    Điều dễ nhận thấy nhất về iPhone 7 tiếp theo chính là mặt sau với dãy ăng-ten được giấu đi, còn lại ngoại hình máy không thay đổi nhiều so với iPhone 6s trước đó.
-                    </p>
-                    <p>
-                      Cuối cùng thì iPhone 7 cũng đã đạt chuẩn chống nước, mang tới sự an tâm lớn cho người dùng khi vô tình để máy dính nước mưa hay làm đổ nước.
-                    </p>
-                  </div>
+                  {detail.description}
+                </div>
                 <div className="row clearfix">
-
-
                   <form className="form-inline">
                     <div className="form-group col-md-6 col-sm-12">
                       <input type="text" className="form-control" style={{ "width": "100%", "marginTop": "5px"}} value="http://google.com"/>

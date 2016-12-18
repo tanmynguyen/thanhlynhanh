@@ -30,15 +30,15 @@ class Header extends React.Component {
               this.props.user?
               <div className="login-after">
                 Hello,
-                <Link to="profile">{this.props.user.profile.name}</Link>
-                <Link to="profile">
+                <Link to="/profile">{this.props.user.profile.name}</Link>
+                <Link to="/checkout">
                   <i className="fa fa-cart-plus fa-2x iconcart"></i>
                 </Link>
                 <br/>
                 <a href="javascript:;" onClick={() => Meteor.logout()}>Logout</a>
 
               </div>
-              :<Link to="login">Login / Register</Link>
+              :<Link to="/login">Login / Register</Link>
             }
 
           </div>

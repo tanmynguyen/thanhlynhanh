@@ -13,7 +13,13 @@ var schema = new SimpleSchema({
     name: {
       type : String
     },
+    description: {
+      type : String
+    },
     quantity: {
+      type: Number,
+    },
+    quantity_left: {
       type: Number,
     },
     normal_price: {
