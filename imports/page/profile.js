@@ -61,6 +61,7 @@ class PostProduct extends React.Component {
       name: this.state.productName,
       description: this.state.description,
       quantity: this.state.quantity,
+      quantity_left: this.state.quantity,
       normal_price: this.state.price,
       sale_price: this.state.priceSale,
       imageBase64: this.state.imageBase64,

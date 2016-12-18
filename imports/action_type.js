@@ -1,0 +1,4 @@
+export default {
+  BUY_PRODUCT: "BUY_PRODUCT",
+  CHECK_OUT_PRODUCT: "CHECK_OUT_PRODUCT",
+}

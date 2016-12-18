@@ -13,7 +13,13 @@ var schema = new SimpleSchema({
     name: {
       type : String
     },
+    description: {
+      type : String
+    },
     quantity: {
+      type: Number,
+    },
+    quantity_left: {
       type: Number,
     },
     normal_price: {
@@ -71,12 +77,17 @@ if(Meteor.isServer){
     return Product.find();
   })
 
+  // Meteor.publish('getProductById', function(id) {
+  //   if (!this.userId) throw new Meteor.Error('not-authorized');
+  //   return Product.findOne({_id: id});
+  // })
+
   Meteor.methods({
     postProduct: (product) => {
       if (!Meteor.userId()) throw new Meteor.Error('not-authorized');
       return Product.insert(product);
     },
-    getProductByUserId: () => {
+    buyProduct: () => {
 
     },
     updateStatusProduct: (product) => {
@@ -84,6 +95,9 @@ if(Meteor.isServer){
       if (!Meteor.userId()) throw new Meteor.Error('not-authorized');
       return Product.update({_id: product.id}, {$set: {status: product.status}});
     },
+    getProductById: (id) => {
+      return Product.findOne({_id: id});
+    }
   })
 }
 
