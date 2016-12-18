@@ -57,25 +57,25 @@ class Home extends React.Component {
           </div>
           <div className="col-md-6">
               <div className="col-sm-6">
-                  <label><input type="radio" name="price"/>$1 - $999</label>
+                  <label><input type="radio" name="price"/> $1 - $999</label>
               </div>
               <div className="col-sm-6">
-                  <label><input type="radio" name="price"/>$1000 - $4999</label>
+                  <label><input type="radio" name="price"/> $1000 - $4999</label>
               </div>
               <div className="col-sm-6">
-                  <label><input type="radio" name="price"/>$5000 - $19999</label>
+                  <label><input type="radio" name="price"/> $5000 - $19999</label>
               </div>
               <div className="col-sm-6">
-                  <label><input type="radio" name="price"/>$2000 - $99999</label>
+                  <label><input type="radio" name="price"/> $2000 - $99999</label>
               </div>
           </div>
-          <div className="row product" style={{clear: 'both'}}>
-            {
-              product.length>0?
-                product.map((val, i) => <ProductItem key={i} product={val}/>)
-              :""
-            }
-          </div>
+        </div>
+        <div className="row product" style={{clear: 'both'}}>
+          {
+            product.length>0?
+              product.map((val, i) => <ProductItem key={i} product={val}/>)
+            :""
+          }
         </div>
       </div>
     );
