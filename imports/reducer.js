@@ -15,11 +15,11 @@ const reducer = (state = initialState, action) => {
           if(state.arrDetailCheckOut[i]._id == action.data._id){
             // _product = state.arrDetailCheckOut[i];
           } else {
-            _product.push(action.data);
+            _product.push(action.data.product);
           }
         }
       } else {
-        _product.push(action.data)
+        _product.push(action.data.product)
       }
 
       return Object.assign({}, state, {

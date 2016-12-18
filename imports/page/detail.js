@@ -1,24 +1,25 @@
 import React, { PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import Category from '../apis/methods/category';
-import Product from '../apis/methods/product';
+import Share from '../apis/methods/share';
 import {buyProduct} from '../action';
 import {connect} from 'react-redux';
 
-export var productDetail = null;
+export var productId = null;
 
 class Detail extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      detail: null
+      detail: null,
+      linkShare: null
     }
   }
 
   buyNow(){
-    productDetail = this.state.detail;
-    this.props.buyProduct(this.state.detail);
+    productId = this.state.detail;
+    this.props.buyProduct(this.state.detail, 1);
     this.props.router.push('/checkout');
   }
 
@@ -26,8 +27,17 @@ class Detail extends React.Component {
     var _this = this;
     Meteor.call('getProductById', this.props.params.productId, (err, result) => {
       _this.setState({
-        detail: result
+        detail: result,
+        // linkShare: _this.props.router.push('/share/'+resultLinkShare._id)
       })
+    })
+    Meteor.call('getLinkShare', this.props.params.productId, (errLinkShare, resultLinkShare) => {
+      if(resultLinkShare){
+        _this.setState({
+          linkShare: _this.props.router.push('/share/'+resultLinkShare._id)
+        })
+      }
+
     })
   }
 
@@ -83,11 +93,9 @@ class Detail extends React.Component {
                     </div>
                   </div>
                   <div className="col-sm-6 text-right">
-                    <div className="maxorder">Max Order: <span className="quatum">300</span></div>
-                    <div className="needorder">Need Order: <span className="quatum">30</span></div>
+                    <div className="maxorder">Max Order: <span className="quatum">{detail.quantity}</span></div>
+                    <div className="needorder">Need Order: <span className="quatum">{detail.quantity_left}</span></div>
                   </div>
-
-
                 </div>
                 <div className="detail clearfix">
                   {detail.description}
@@ -95,13 +103,17 @@ class Detail extends React.Component {
                 <div className="row clearfix">
                   <form className="form-inline">
                     <div className="form-group col-md-6 col-sm-12">
-                      <input type="text" className="form-control" style={{ "width": "100%", "marginTop": "5px"}} value="http://google.com"/>
+                      {
+                        this.state.linkShare?
+                        <input disabled type="text" className="form-control" style={{ "width": "100%", "marginTop": "5px"}} value={this.state.linkShare}/>
+                        :""
+                      }
                     </div>
                     <div className="form-group col-md-2 col-xs-6 text-right">
                       <i className="fa fa-heart fa-3x" aria-hidden="true"></i>
                     </div>
                     <div className="form-group col-md-4 col-xs-6">
-                      <button onClick={() => this.buyNow()} className="btn btn-primary btn-buy">Buy now!</button>
+                      <button onClick={() => this.buyNow()} className="btn btn-primary btn-buy" type="button">Buy now!</button>
                     </div>
                   </form>
                   </div>
@@ -119,16 +131,15 @@ class Detail extends React.Component {
 }
 
 const _Detail = createContainer(() => {
-  Meteor.subscribe('getListCategory');
-  Meteor.subscribe('getListProductPost');
+  // Meteor.subscribe('getShare');
   return {
-    // getProductById: Product.find({}, {sort: {create_at: -1}}).fetch()
+    // linkShare: Product.find({product_id: product_id, create_by: this.userId}, {sort: {create_at: -1}}).fetch()
   };
 }, Detail);
 
 export default connect (
   null,
   (dispatch) => ({
-    buyProduct: (product) => {dispatch(buyProduct(product))}
+    buyProduct: (product, amount) => {dispatch(buyProduct(product, amount))}
   })
 )(_Detail)
