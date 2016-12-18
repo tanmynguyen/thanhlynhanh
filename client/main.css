@@ -162,3 +162,49 @@ body {
     text-transform: uppercase;
     font-size: 18px;
   }
+
+
+  /**Checout**/
+.checkout{
+    border: solid 1px #dadada;
+    padding: 15px 0;
+  }
+
+  .checkout h3{
+    margin-top: 0px;
+    color: blue;
+    font-weight: bold;
+    font-size: 28px;
+    
+  }
+
+  .checkout .divider{
+    margin: 5px 0;
+    border: solid 1px #e7e7e7;
+  }
+
+  .product-name{
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .price-product, .number-products{
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+  }
+
+  .cost{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+  }
+  .cost b{
+    color: blue;
+  }
+
+  .cost .usepoint{
+    color: red;
+    font-weight: bold;
+  }
