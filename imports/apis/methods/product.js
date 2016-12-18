@@ -78,7 +78,12 @@ if(Meteor.isServer){
     },
     getProductByUserId: () => {
 
-    }
+    },
+    updateStatusProduct: (product) => {
+      console.log('update status = ' + product.status);
+      if (!Meteor.userId()) throw new Meteor.Error('not-authorized');
+      return Product.update({_id: product.id}, {$set: {status: product.status}});
+    },
   })
 }
 

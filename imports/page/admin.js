@@ -1,137 +1,183 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { createContainer } from 'meteor/react-meteor-data';
+import Category from '../apis/methods/category';
+import Product from '../apis/methods/product';
+import Dropzone from 'react-dropzone';
+import {imageToBase64} from '../module/functions';
+import TableProduct from '../component/table';
 
 class Admin extends React.Component {
+  handleSelect(index, last) {
+    // console.log('Selected tab: ' + index + ', Last tab: ' + last);
+  }
+  render () {
+    //console.log(this.props.listProductPost);
+    //console.log(this.props.location.pathname.replace('/',''));
+    var location = this.props.location.pathname.replace('/','');
+    return (
+      <Tabs
+          onSelect={this.handleSelect}
+          selectedIndex={0}
+        >
+        <TabList>
+            <Tab>Verifying</Tab>
+            <Tab>On-air</Tab>
+            <Tab>Expired</Tab>
+        </TabList>
+        <TabPanel>
+          <ProductVerify listProductVerify={this.props.listProductVerify} location={location} />
+        </TabPanel>
+        <TabPanel>
+          <ProductOnAir listProductOnAir={this.props.listProductOnAir} location={location} />
+        </TabPanel>
+        <TabPanel>
+          <ProductExpired listProductExpired={this.props.listProductExpired} location={location} />
+        </TabPanel>
+      </Tabs>
+    )
+  }
+}
+
+class ProductVerify extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      categoryName: "",
+      categoryId: "",
+      productName: "",
+      description: "",
+      price: 0,
+      quantity: 10,
+      totalPrice: 0,
+      imageBase64: "",
+      temp_image_upload: "/images/upload-cloud.png"
+    }
+  }
+
   render () {
     return (
-        <div id="wrapper">
+      <div className="row">
+        <div className="col-md-12">
+          <h3>Products awaiting moderation</h3>
+          <ListProductVerify listProductVerify={this.props.listProductVerify} location={this.props.location} />
+        </div>
+      </div>
+    )
+  }
+}
 
-
-        <nav className="navbar navbar-default navbar-static-top" role="navigation" style={{marginBottom: 0}}>
-            <div className="navbar-header">
-                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                </button>
-                <a className="navbar-brand" href="index.html">SB Admin v2.0</a>
-            </div>
-
-
-            <ul className="nav navbar-top-links navbar-right">
-
-
-                <li className="dropdown">
-                    <a className="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i className="fa fa-user fa-fw"></i> <i className="fa fa-caret-down"></i>
-                    </a>
-                    <ul className="dropdown-menu dropdown-user">
-                        <li><a href="#"><i className="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i className="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li className="divider"></li>
-                        <li><a href="login.html"><i className="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-
-                </li>
-
-            </ul>
-
-
-            <div className="navbar-default sidebar" role="navigation">
-                <div className="sidebar-nav navbar-collapse">
-                    <ul className="nav" id="side-menu">
-                        <li>
-                            <a href="products.html"><i className="fa fa-product-hunt fa-fw"></i> Products</a>
-                        </li>
-                        <li>
-                            <a href="users.html"><i className="fa fa-users fa-fw"></i> Users</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </nav>
-
-
-
-<div id="page-wrapper">
-
-<div className="row">
-
-<div className="col-sm-12"  style={{marginTop: 30}}>
-    <div className="panel panel-primary">
-      <div className="panel-heading" style={{textTransform: 'uppercase'}}>Products awaiting moderation</div>
-      <div className="table-responsive">
-        <table className="table table-striped">
-           <thead>
-              <tr>
-                <th>ID</th>
-                <th>Product Name</th>
-                <th>Catagory</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Time Out</th>
-                <th>Status</th>
-                <th>Verify</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Iphone</td>
-                <td>Apple</td>
-                <td>799$</td>
-                <td>100</td>
-                <td>24/12/2016 9:00 AM</td>
-                <td>New</td>
-                <td>
-                    <button type="button" className="btn btn-success">Accept</button>
-                    <button type="button" className="btn btn-warning">Decline</button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Galaxy note 6</td>
-                <td>Samsung</td>
-                <td>750$</td>
-                <td>100</td>
-                <td>24/12/2016 12:00 AM</td>
-                <td>New</td>
-                <td>
-                    <button type="button" className="btn btn-success">Accept</button>
-                    <button type="button" className="btn btn-warning">Decline</button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Macbook Ari</td>
-                <td>Apple</td>
-                <td>1500$</td>
-                <td>100</td>
-                <td>31/12/2016 9:00 AM</td>
-                <td>New</td>
-                <td>
-                    <button type="button" className="btn btn-success">Accept</button>
-                    <button type="button" className="btn btn-warning">Decline</button>
-                </td>
-              </tr>
-            </tbody>
-        </table>
-    </div>
-    </div>
-</div>
-
-</div>
-
-</div>
-</div>
-        );
-    }
+class ListProductVerify extends React.Component {
+  render() {
+    var listProductVerify = this.props.listProductVerify;
+    return (
+      <div>
+        {
+          listProductVerify.length>0?
+            <TableProduct product={listProductVerify} location={this.props.location} />
+          :""
+        }
+      </div>
+    )
+  }
 }
 
 
-export default Admin;
+class ProductOnAir extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      categoryName: "",
+      categoryId: "",
+      productName: "",
+      description: "",
+      price: 0,
+      quantity: 10,
+      totalPrice: 0,
+      imageBase64: "",
+      temp_image_upload: "/images/upload-cloud.png"
+    }
+  }
+
+  render () {
+    return (
+      <div className="row">
+        <div className="col-md-12">
+          <h3>Products awaiting moderation</h3>
+          <ListProductOnAir listProductOnAir={this.props.listProductOnAir} location={this.props.location} />
+        </div>
+      </div>
+    )
+  }
+}
+
+class ListProductOnAir extends React.Component {
+  render() {
+    var listProductOnAir = this.props.listProductOnAir;
+    return (
+      <div>
+        {
+          listProductOnAir.length>0?
+            <TableProduct product={listProductOnAir} location={this.props.location} />
+          :""
+        }
+      </div>
+    )
+  }
+}
+
+class ProductExpired extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      categoryName: "",
+      categoryId: "",
+      productName: "",
+      description: "",
+      price: 0,
+      quantity: 10,
+      totalPrice: 0,
+      imageBase64: "",
+      temp_image_upload: "/images/upload-cloud.png"
+    }
+  }
+
+  render () {
+    return (
+      <div className="row">
+        <div className="col-md-12">
+          <h3>Products exired time / Canceled</h3>
+          <ListProductExpired listProductExpired={this.props.listProductExpired} location={this.props.location} />
+        </div>
+      </div>
+    )
+  }
+}
+
+class ListProductExpired extends React.Component {
+  render() {
+    var listProductExpired = this.props.listProductExpired;
+    return (
+      <div>
+        {
+          listProductExpired.length>0?
+            <TableProduct product={listProductExpired} location={this.props.location} />
+          :""
+        }
+      </div>
+    )
+  }
+}
+
+export default createContainer(() => {
+  Meteor.subscribe('getListProductPost');
+  console.log(Meteor.subscribe('getListProductPost').ready());
+  return {
+    listProductVerify: Product.find({status: 'verifying'},{sort: {create_at: -1}}).fetch(),
+    listProductOnAir: Product.find({status: 'processing'},{sort: {create_at: -1}}).fetch(),
+    listProductExpired: Product.find({status: 'done', status: 'cancel'},{sort: {create_at: -1}}).fetch(),
+  };
+}, Admin);
