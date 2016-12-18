@@ -56,8 +56,35 @@ body {
   padding: 30px;
   padding-left: 150px;
 }
-
+.navbar-header {
+  list-style-type: none;
+}
 */
+
+.navbar-brand {
+  color: red;
+  font-family: fantasy;
+}
+
+
+li.location {
+  padding-top: 15px;
+  padding-left: 100px
+}
+
+.hotdeal {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.login {
+  padding-right: 50px;
+}
+
+.navbar-right {
+  padding-right: 50px;
+}
 
 /* css home*/
 

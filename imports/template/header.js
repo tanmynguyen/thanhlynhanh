@@ -6,52 +6,36 @@ import { createContainer } from 'meteor/react-meteor-data';
 class Header extends React.Component {
   render () {
     return (
-      <header>
-          <div className="row">
-          <div className="col-md-2">
-            <Link to="/"><img className="img-responsive" src="/images/logo.png" /></Link>
-          </div>
+        <nav className="navbar navbar-default">
+          <div className="container">
+                 <div className="navbar-header">
+                      <Link className="navbar-brand" to="/">ThanhLyNhanh.com</Link>
+                  </div>
 
-          <div className="col-md-2">
-            <div className = "row navbar">
-              <Link className="menu"> Home </Link>
-              <Link className="menu"> HotDeal </Link>
-            </div>
-          </div>
+                  <ul className="nav navbar-nav">
 
-          <div className="col-md-4">
-            <div className="row">
-              Location: Ho Chi Minh City
+                    <li className="hotdeal">
+                      <Link className="menu"> HotDeal </Link>
+                    </li>
 
-            </div>
-            <div className="row">
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="Search for..." />
-                <span className="input-group-btn">
-                  <button className="btn btn-default" type="button">Search</button>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 login">
-            {
-              this.props.user?
-              <div className="login-after">
-                Hello,
-                <Link to="profile">{this.props.user.profile.name}</Link>
-                <Link to="profile">
-                  <i className="fa fa-cart-plus fa-2x iconcart"></i>
-                </Link>
-                <br/>
-                <a href="javascript:;" onClick={() => Meteor.logout()}>Logout</a>
+                    <li className="location">
+                      Location: Ho Chi Minh City
+                    </li>
+                  </ul>
 
-              </div>
-              :<Link to="login">Login / Register</Link>
-            }
+                  <ul className="nav navbar-nav navbar-right">
+                    {
+                      this.props.user ?
+                      <div>
+                        <li>Hello, <Link to="profile">{this.props.user.profile.name} <i className="fa fa-cart-plus fa-2x iconcart"></i></Link></li>
+                        <li><a href="javascript:;" onClick={() => Meteor.logout()}>Logout</a></li>
+                      </div>
 
-          </div>
-        </div>
-      </header>
+                      : <li className="login"><Link to="login">Login / Register</Link></li>
+                    }
+                </ul>
+           </div>
+        </nav>
     );
   }
 }
