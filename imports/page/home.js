@@ -23,7 +23,7 @@ class Home extends React.Component {
                 <form className="form-inline">
                   <div className="form-group col-sm-4">
                       <div className="row">
-                        <select className="form-control" name="">
+                        <select className="form-control" style={{ "width": "95%"}} name="">
                             <option value="">All</option>
                             <option value="">Technology</option>
                             <option value="">Fashion</option>
@@ -33,7 +33,7 @@ class Home extends React.Component {
                   </div>
                   <div className="form-group col-sm-4">
                     <div className="row">
-                        <select className="form-control col-sm-12" name="">
+                        <select className="form-control col-sm-12" style={{ "width": "95%"}} name="">
                             <option value="">All</option>
                             <option value="">Laptop</option>
                             <option value="">Mobile</option>
@@ -42,7 +42,7 @@ class Home extends React.Component {
                   </div>
                   <div className="form-group col-sm-4">
                     <div className="row">
-                        <select className="form-control col-sm-12" name="">
+                        <select className="form-control col-sm-12" style={{ "width": "95%"}} name="">
                             <option value="">Order by</option>
                             <option value="">Order by</option>
                             <option value="">Orderby New</option>
@@ -52,7 +52,7 @@ class Home extends React.Component {
 
                 </form>
             </div>
-        </div>
+
 
         <div className="col-md-6">
             <div className="col-sm-6">
@@ -69,7 +69,7 @@ class Home extends React.Component {
             </div>
         </div>
 
-
+    </div>
     <div className="row product">
 
 
@@ -97,7 +97,7 @@ class Home extends React.Component {
               </div>
               <div className="clearfix">
                 <div className="row">
-                  <div className="col-sm-6" ><i className="fa fa-user"> Nguyennhatkha92</i></div>
+                  <div className="col-sm-6" ><i className="fa fa-user"> Nguyennhat</i></div>
                   <div className="col-sm-6"><i className="fa fa-map-marker"> Ho chi Minh</i></div>
                 </div>
               </div>

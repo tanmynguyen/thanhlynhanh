@@ -42,7 +42,7 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+/*
 .navbar-header {
   padding: 30px;
     padding-left: 60px;
@@ -57,3 +57,108 @@ body {
   padding-left: 150px;
 }
 
+*/
+
+/* css home*/
+
+.category{
+    margin-top: 30px
+  }
+  .selectform{
+    padding-top: 5px;
+  }
+
+  .product {
+    margin-top: 30px;
+  }
+
+  .thumbnail a{
+    text-decoration: none;
+  }
+  .thumbnail .caption h3{
+    margin-top: 0px;
+  }
+  .thumbnail img{
+    width: 100%;
+  }
+  .price{
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .oldprice{
+    text-decoration: line-through;
+    color: blue;
+  }
+  .newprice{
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .quantumtxt, .timetxt{
+    color: blue;
+    font-size: 18px;
+  }
+  .mypoints{
+    color: blue;
+    font-size: 18px;
+  }
+  .hot-product{
+    position: absolute;
+    right: 20px;
+    top: 5px;
+  }
+
+  /* detail */
+
+  .product-detail{
+    margin-top: 30px;
+    border: solid 1px #000000;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .product-detail h3{
+    padding-top: 0px;
+    margin-top: 0px;
+    color: blue;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+
+  .product-detail .oldprice{
+    text-decoration: line-through;
+    color: blue;
+    font-size: 28px;
+    margin-right: 30px;
+  }
+  .product-detail .newprice{
+    color: red;
+    font-size: 38px;
+    font-weight: bold;
+  }
+
+  .product-detail .timetxt{
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+  }
+
+  .maxorder, .needorder{
+    color: blue;
+    font-size: 18px;
+  }
+
+  .fa-heart{
+    color: #c1267b;
+  }
+
+  .star{
+    color: yellow;
+    font-size: 18px;
+  }
+  .btn-buy{
+    text-transform: uppercase;
+    font-size: 18px;
+  }

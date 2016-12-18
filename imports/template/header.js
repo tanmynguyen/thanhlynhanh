@@ -1,3 +1,4 @@
+
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -6,16 +7,15 @@ class Header extends React.Component {
   render () {
     return (
       <header>
-        <div className="row">
-          <div className="col-md-2 logo-header">
-            <div className="row">
-              <Link to="/"><img className="img-responsive" src="/images/logo.png" /></Link>
-            </div>
+          <div className="row">
+          <div className="col-md-2">
+            <Link to="/"><img className="img-responsive" src="/images/logo.png" /></Link>
           </div>
 
-          <div className="col-md-2 navbar-header">
-            <div className = "row">
-              <Link> Hot Deal </Link>
+          <div className="col-md-2">
+            <div className = "row navbar">
+              <Link className="menu"> Home </Link>
+              <Link className="menu"> HotDeal </Link>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ class Header extends React.Component {
           </div>
         </div>
       </header>
-    )
+    );
   }
 }
 
