@@ -71,13 +71,21 @@ if(Meteor.isServer){
     return Product.find();
   })
 
+  // Meteor.publish('getProductById', function(id) {
+  //   if (!this.userId) throw new Meteor.Error('not-authorized');
+  //   return Product.findOne({_id: id});
+  // })
+
   Meteor.methods({
     postProduct: (product) => {
       if (!Meteor.userId()) throw new Meteor.Error('not-authorized');
       return Product.insert(product);
     },
-    getProductByUserId: () => {
+    buyProduct: () => {
 
+    },
+    getProductById: (id) => {
+      return Product.findOne({_id: id});
     }
   })
 }

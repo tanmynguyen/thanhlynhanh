@@ -8,6 +8,7 @@ import Profile from './page/profile';
 import Checkout from './page/checkout';
 import Detail from './page/detail';
 import Admin from './page/admin';
+import Share from './page/share';
 import NotFound from './page/not_found';
 
 export default (
@@ -16,7 +17,8 @@ export default (
     <Route path="login" component={Login} />
 		<Route path="profile" component={Profile} />
 		<Route path="checkout" component={Checkout}/>
-		<Route path="detail/:productId/:userId" component={Detail}/>
+		<Route path="detail/:productId" component={Detail}/>
+		<Route path="share/:shareId" component={Detail}/>
 		<Route path="admin" component={Admin} />
 		<Route path="*" component={NotFound}/>
 	</Route>
